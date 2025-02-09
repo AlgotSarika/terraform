@@ -1,11 +1,9 @@
 resource "aws_instance" "this" {
-  ami                    = local.ami_id #This is our devops-practice AMI ID
+  ami                    = "ami-09c813fb71547fc4f" #This is our devops-practice AMI ID
   vpc_security_group_ids = [aws_security_group.allow_tlse.id]
-  # instance_type          = var.instance_type
-  instance_type = local.instance_type
+  instance_type          = "t3.micro"
   tags = {
-    #expense-dev-backend
-    Name    = local.name
+    Name    = "terraform-demo"
     Purpose = "terraform-practice"
   }
 }
